@@ -11,11 +11,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Surface
   - Water
   - UI
-  - 
-  - 
+  - Hole
+  - Objects
   - 
   - 
   - 
