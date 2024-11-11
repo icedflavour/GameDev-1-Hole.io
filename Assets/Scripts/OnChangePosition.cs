@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -18,7 +18,7 @@ public class OnChangePosition : MonoBehaviour
         {
             transform.hasChanged = false;
             hole2DCollider.transform.position = new Vector2(transform.position.x, transform.position.z);
-            hole2DCollider.transform.localScale *= initialScale;
+            hole2DCollider.transform.localScale = transform.localScale * initialScale;
             MakeHole2D();
             Generate3DMeshCollider();
         }
@@ -30,7 +30,7 @@ public class OnChangePosition : MonoBehaviour
 
         for (int i = 0; i < PointPositions.Length; i++)
         {
-            PointPositions[i] = hole2DCollider.transform.TransformPoint(PointPositions[i]);
+            PointPositions[i] = hole2DCollider.transform.TransformPoint(PointPositions[i]); //!
         }
 
         surface2DCollider.pathCount = 2;
