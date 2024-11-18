@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Hole : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int currentFood;
+    [SerializeField] private int currentScore;
+    public void AddFood(int additionalFood)
     {
-        
+        currentFood += additionalFood;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddScore(int additionalScore)
     {
-        
+        currentScore += additionalScore;
     }
 }
