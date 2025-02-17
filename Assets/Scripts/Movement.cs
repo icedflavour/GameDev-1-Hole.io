@@ -23,11 +23,12 @@ public class Movement : MonoBehaviour
         float rotationInput = Input.GetAxis("Horizontal");
         float movementInput = Input.GetAxis("Vertical");
 
+        // Rotate the hole
         transform.Rotate(0.0f, rotationInput, 0.0f, Space.Self);
 
-        rb.velocity = transform.forward * movementInput * MovementSpeed;
+        // Move the hole
+        Vector3 forwardMovement = transform.forward * movementInput * MovementSpeed * Time.deltaTime;
+        transform.position += forwardMovement;
     }
-
-    //rb.velocity = new Vector3(Input.GetAxis("Horizontal") * MovementSpeed, 0f, Input.GetAxis("Vertical") * MovementSpeed);
 }
 

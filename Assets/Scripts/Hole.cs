@@ -15,4 +15,9 @@ public class Hole : MonoBehaviour
     {
         
     }
+
+    public void ChangeSize(int size)
+    {
+        
+    }
 }

@@ -17,9 +17,9 @@ TagManager:
   - Hole
   - Objects
   - 
-  - 
-  - 
-  - 
+  - NormalSphere
+  - FallingSphere
+  - Surface
   - 
   - 
   - 
