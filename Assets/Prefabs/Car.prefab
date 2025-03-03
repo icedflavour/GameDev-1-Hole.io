@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2596389275981051795}
   - component: {fileID: 585842896153957451}
   - component: {fileID: 8272820618238050336}
-  - component: {fileID: 7066289053194146673}
   - component: {fileID: 8800588724464336373}
+  - component: {fileID: -6113194170410717568}
   m_Layer: 9
   m_Name: Car
   m_TagString: Untagged
@@ -88,27 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7066289053194146673
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890355749988851586}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5.9704647, y: 1.5611161, z: 1.705052}
-  m_Center: {x: -0.53668535, y: 0.0035948753, z: 0.24932444}
 --- !u!54 &8800588724464336373
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136,3 +115,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &-6113194170410717568
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890355749988851586}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8904801716792563035, guid: 56ddd9b3306734640acff7786bac8c3c, type: 3}

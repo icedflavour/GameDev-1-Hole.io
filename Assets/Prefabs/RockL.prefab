@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5263830450968021481}
   - component: {fileID: 5641420563036697636}
   - component: {fileID: 9101550643977695287}
-  - component: {fileID: 3675646899492652273}
+  - component: {fileID: -2679701125523375785}
   m_Layer: 9
   m_Name: RockL
   m_TagString: Untagged
@@ -112,8 +112,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3675646899492652273
-BoxCollider:
+--- !u!64 &-2679701125523375785
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -130,6 +130,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0130615, y: 1.082739, z: 0.91838247}
-  m_Center: {x: 0.03796886, y: 0.536187, z: 0.010608226}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2519473635315226807, guid: 109f2f4c1510e7c46a39083c12749f8d, type: 3}
