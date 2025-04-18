@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2022319610614412212}
   - component: {fileID: 911822662368562435}
   - component: {fileID: -1250799071416833493}
+  - component: {fileID: 2941823261423526093}
   m_Layer: 9
   m_Name: Tree
-  m_TagString: Untagged
+  m_TagString: Eatable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,3 +136,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3142649664740890969, guid: 109f2f4c1510e7c46a39083c12749f8d, type: 3}
+--- !u!114 &2941823261423526093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059469973331191757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83cfb01f6fd4df94f88a6e9dee767f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FoodScore: 5

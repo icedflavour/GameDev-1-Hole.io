@@ -1,23 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System;
+using UnityEngine.UI;
 
 public class Hole : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float StarvationRate;
+    public float FoodScore;
+    public float MaxFoodScore;
+    public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI MaxScoreText;
+    public Slider HealthBar;
+
+    private void Start()
     {
-        
+        MaxFoodScore = FoodScore;
+        ScoreText.text = Math.Floor(FoodScore).ToString();
+        MaxScoreText.text = Math.Floor(MaxFoodScore).ToString();
+        HealthBar.maxValue = MaxFoodScore;
+        HealthBar.value = FoodScore;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Eat(float changeFoodScore)
     {
-        
+
+        FoodScore += changeFoodScore;
+
+        if (FoodScore < 0)
+        {
+            FoodScore = 0;
+        }
+
+        ScoreText.text = Math.Floor(FoodScore).ToString();
+
+        if (FoodScore > MaxFoodScore)
+        {
+            MaxFoodScore = FoodScore;
+            HealthBar.maxValue = MaxFoodScore;
+            MaxScoreText.text = Math.Floor(MaxFoodScore).ToString();
+        }
+
+        HealthBar.value = FoodScore;
+        transform.localScale += new Vector3(changeFoodScore / 10, changeFoodScore / 10, changeFoodScore / 10);
     }
 
-    public void ChangeSize(int size)
-    {
-        
-    }
+	private void FixedUpdate()
+	{
+        if (FoodScore > 0)
+        {
+            var StarveValue = FoodScore * StarvationRate;
+            Eat(-StarveValue);
+        }
+	}
 }
