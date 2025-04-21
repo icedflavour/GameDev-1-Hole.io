@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Hole.io.sln"
+    "dotnet.defaultSolution": "HoleIO.sln"
 }
