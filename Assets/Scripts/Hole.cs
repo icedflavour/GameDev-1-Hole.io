@@ -5,23 +5,13 @@ using UnityEngine.UI;
 
 public class Hole : MonoBehaviour
 {
-<<<<<<< HEAD
-    [SerializeField] private int currentFood;
-    [SerializeField] private int currentScore;
-    public void AddFood(int additionalFood)
-    {
-        currentFood += additionalFood;
-    }
-
-    public void AddScore(int additionalScore)
-    {
-        currentScore += additionalScore;
-=======
     public float StarvationRate;
     public float FoodScore;
     public float MaxFoodScore;
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI MaxScoreText;
+    public GameObject AddedScoreTextPrefab;
+    public Transform HoleHUD;
     public Slider HealthBar;
 
     private void Start()
@@ -54,7 +44,14 @@ public class Hole : MonoBehaviour
 
         HealthBar.value = FoodScore;
         transform.localScale += new Vector3(changeFoodScore / 10, changeFoodScore / 10, changeFoodScore / 10);
->>>>>>> origin/master
+        if (changeFoodScore > 0)
+        {
+            GameObject AddedScoreText = Instantiate(AddedScoreTextPrefab, HoleHUD);
+            AddedScoreText.GetComponent<TextMeshProUGUI>().text = "+" + Math.Floor(changeFoodScore).ToString();
+
+            Destroy(AddedScoreText, 2f);
+        }
+        
     }
 
 	private void FixedUpdate()
