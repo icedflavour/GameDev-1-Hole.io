@@ -6,13 +6,6 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private int MovementSpeed;
 
-    private Rigidbody rb;
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
     private void Update()
     {
         MoveTheHole();
@@ -24,10 +17,8 @@ public class Movement : MonoBehaviour
         float movementInput = Input.GetAxis("Vertical");
 
         transform.Rotate(0.0f, rotationInput, 0.0f, Space.Self);
-
-        rb.velocity = transform.forward * movementInput * MovementSpeed;
+        
+        Vector3 forwardMovement = transform.forward * movementInput * MovementSpeed * Time.deltaTime;
+        transform.position += forwardMovement;
     }
-
-    //rb.velocity = new Vector3(Input.GetAxis("Horizontal") * MovementSpeed, 0f, Input.GetAxis("Vertical") * MovementSpeed);
 }
-
