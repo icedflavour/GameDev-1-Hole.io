@@ -14,6 +14,8 @@ public class Hole : MonoBehaviour
     public Transform HoleHUD;
     public Slider HealthBar;
 
+    [SerializeField] private GameManager gameManager;
+
     private void Start()
     {
         MaxFoodScore = FoodScore;
@@ -44,10 +46,12 @@ public class Hole : MonoBehaviour
 
         HealthBar.value = FoodScore;
         transform.localScale += new Vector3(changeFoodScore / 10, changeFoodScore / 10, changeFoodScore / 10);
+
         if (changeFoodScore > 0)
         {
             GameObject AddedScoreText = Instantiate(AddedScoreTextPrefab, HoleHUD);
             AddedScoreText.GetComponent<TextMeshProUGUI>().text = "+" + Math.Floor(changeFoodScore).ToString();
+            gameManager.IsGameOver();
 
             Destroy(AddedScoreText, 2f);
         }
