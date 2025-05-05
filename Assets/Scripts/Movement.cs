@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.IsPaused) return;
         MoveTheHole();
     }
 

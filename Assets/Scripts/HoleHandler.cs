@@ -6,6 +6,7 @@ public class HoleHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (GameManager.IsPaused) return;
         if (other.gameObject.layer == NormalSphereLayer)
         {
             other.gameObject.layer = FallingSphereLayer;
@@ -14,6 +15,7 @@ public class HoleHandler : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (GameManager.IsPaused) return;
         if (other.gameObject.layer == FallingSphereLayer)
         {
             other.gameObject.layer = NormalSphereLayer;
@@ -23,8 +25,8 @@ public class HoleHandler : MonoBehaviour
         {
             if (transform.position.y > other.transform.position.y)
             {
-                other.gameObject.transform.parent = null;
                 transform.parent.gameObject.GetComponent<Hole>().Eat(other.gameObject.GetComponent<MapObject>().FoodScore);
+                other.gameObject.transform.parent = null;
                 Destroy(other.gameObject, 2f);
             }
         }

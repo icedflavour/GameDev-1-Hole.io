@@ -27,7 +27,8 @@ public class Hole : MonoBehaviour
 
     public void Eat(float changeFoodScore)
     {
-
+        if (GameManager.IsPaused) return;
+        
         FoodScore += changeFoodScore;
 
         if (FoodScore < 0)
@@ -60,6 +61,8 @@ public class Hole : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+        if (GameManager.IsPaused) return;
+        
         if (FoodScore > 0)
         {
             var StarveValue = FoodScore * StarvationRate;
