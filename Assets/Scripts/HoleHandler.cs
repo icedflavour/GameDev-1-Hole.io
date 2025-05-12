@@ -27,6 +27,8 @@ public class HoleHandler : MonoBehaviour
             {
                 transform.parent.gameObject.GetComponent<Hole>().Eat(other.gameObject.GetComponent<MapObject>().FoodScore);
                 other.gameObject.transform.parent = null;
+                var gameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+                gameManager.IsGameOver();
                 Destroy(other.gameObject, 2f);
             }
         }

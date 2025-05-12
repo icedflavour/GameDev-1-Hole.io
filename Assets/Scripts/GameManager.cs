@@ -42,28 +42,30 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         IsPaused = true;
-        var playerScore = player.GetComponent<Hole>().MaxFoodScore; // MAX SCORE
-        var playerMaxScore = player.GetComponent<Hole>().MaxFoodScore; // RECORD SCORE
+        var playerMaxScore = player.GetComponent<Hole>().MaxFoodScore; // MAX SCORE
+        var playerRecordScore = PlayerPrefs.GetFloat("RecordScore", 0f); // RECORD SCORE
         menuWin.SetActive(true);
-        menuWin.transform.GetChild(0).GetChild(3).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "SCORE • " + Mathf.Floor(playerScore);
-        if (playerScore > playerMaxScore)
+        menuWin.transform.GetChild(0).GetChild(3).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "SCORE • " + Mathf.Floor(playerMaxScore);
+        if (playerMaxScore > playerRecordScore)
         {
-            playerMaxScore = playerScore;
-            menuWin.transform.GetChild(0).GetChild(4).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "RECORD • " + Mathf.Floor(playerMaxScore);
+            playerRecordScore = playerMaxScore;
+            PlayerPrefs.SetFloat("RecordScore", (float)playerMaxScore);
+            menuWin.transform.GetChild(0).GetChild(4).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "RECORD • " + Mathf.Floor(playerRecordScore);
         }
     }
 
     public void LoseGame()
     {
         IsPaused = true;
-        var playerScore = player.GetComponent<Hole>().MaxFoodScore; // MAX SCORE
-        var playerMaxScore = player.GetComponent<Hole>().MaxFoodScore; // RECORD SCORE
+        var playerMaxScore = player.GetComponent<Hole>().MaxFoodScore; // MAX SCORE
+        var playerRecordScore = PlayerPrefs.GetFloat("RecordScore", 0f); // RECORD SCORE
         menuLose.SetActive(true);
-        menuLose.transform.GetChild(0).GetChild(3).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "SCORE • " + Mathf.Floor(playerScore);
-        if (playerScore > playerMaxScore)
+        menuLose.transform.GetChild(0).GetChild(3).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "SCORE • " + Mathf.Floor(playerMaxScore);
+        if (playerMaxScore > playerRecordScore)
         {
-            playerMaxScore = playerScore;
-            menuLose.transform.GetChild(0).GetChild(4).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "RECORD • " + Mathf.Floor(playerMaxScore);
+            playerRecordScore = playerMaxScore;
+            PlayerPrefs.SetFloat("RecordScore", (float)playerMaxScore);
+            menuLose.transform.GetChild(0).GetChild(4).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "RECORD • " + Mathf.Floor(playerRecordScore);
         }
     }
 
