@@ -45,13 +45,15 @@ public class GameManager : MonoBehaviour
         var playerMaxScore = player.GetComponent<Hole>().MaxFoodScore; // MAX SCORE
         var playerRecordScore = PlayerPrefs.GetFloat("RecordScore", 0f); // RECORD SCORE
         menuWin.SetActive(true);
-        menuWin.transform.GetChild(0).GetChild(3).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "SCORE • " + Mathf.Floor(playerMaxScore);
+        menuWin.transform.GetChild(0).GetChild(4).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "SCORE • " + Mathf.Floor(playerMaxScore);
         if (playerMaxScore > playerRecordScore)
         {
             playerRecordScore = playerMaxScore;
             PlayerPrefs.SetFloat("RecordScore", (float)playerMaxScore);
-            menuWin.transform.GetChild(0).GetChild(4).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "RECORD • " + Mathf.Floor(playerRecordScore);
+            PlayerPrefs.Save();
         }
+        menuWin.transform.GetChild(0).GetChild(5).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "RECORD • " + Mathf.Floor(playerRecordScore);
+        Debug.Log("My record score is " + playerRecordScore);
     }
 
     public void LoseGame()
@@ -65,8 +67,10 @@ public class GameManager : MonoBehaviour
         {
             playerRecordScore = playerMaxScore;
             PlayerPrefs.SetFloat("RecordScore", (float)playerMaxScore);
-            menuLose.transform.GetChild(0).GetChild(4).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "RECORD • " + Mathf.Floor(playerRecordScore);
+            PlayerPrefs.Save();
         }
+        menuLose.transform.GetChild(0).GetChild(4).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "RECORD • " + Mathf.Floor(playerRecordScore);
+        Debug.Log("My record score is " + playerRecordScore);
     }
 
     public void PauseGame()
