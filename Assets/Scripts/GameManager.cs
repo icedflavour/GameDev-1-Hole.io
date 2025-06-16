@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
 
     public void IsGameOver()
     {
-        if (level.childCount == 0)
+        if (level.childCount == 1)
         {
             WinGame();
         }

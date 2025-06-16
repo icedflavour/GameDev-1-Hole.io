@@ -6,7 +6,7 @@ public class HoleHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (GameManager.IsPaused) return;
+        if (GameManager.IsPaused) return;   
         if (other.gameObject.layer == NormalSphereLayer)
         {
             other.gameObject.layer = FallingSphereLayer;
